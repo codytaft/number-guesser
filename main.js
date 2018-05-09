@@ -7,36 +7,43 @@ var clearBtn = document.querySelector('#clear-btn');
 var resetBtn = document.querySelector('#reset');
 var numResult = document.querySelector('#highLow');
 
-
+theGuess.addEventListener('keydown', pressingEnter);
 theGuess.addEventListener('keyup', toggleButton);
 guessBtn.addEventListener('click', displayAnswer);
+guessBtn.addEventListener('click', lastGuess);
+clearBtn.addEventListener('click', clearInput);
 
+resetBtn.addEventListener('click', function() {
+  location.reload(true);
+});
+
+function clearInput () {
+  theGuess.value='';
+}
+
+/displays last guess/
+function lastGuess () {
+  prevGuess.innerText = theGuess.value;
+  event.preventDefault();
+}
+
+/displays correct or high or low value/
 function displayAnswer () {
     if (randomNumber < theGuess.value) {
      numResult.innerHTML = 'That is too high';
-  }  else if (randomNumber > theGuess.value) {
+  } else if (randomNumber > theGuess.value) {
      numResult.innerHTML = 'That is too low';
   } else {
      numResult.innerHTML = 'BOOM!';
   }
 };
 
-guessBtn.addEventListener('click', function () {
-  prevGuess.innerHTML = theGuess.value;
-});
-
-resetBtn.addEventListener('click', function() {
-  location.reload(true);
-});
-
-clearBtn.addEventListener('click', function () {
-  var theGuess = document.querySelector('#guess').value;
-  document.querySelector('#lastGuess').innerText = theGuess;
-  theGuess = document.querySelector('#guess').value='';
-  document.querySelector('#highLow').innerText = '';
-});
-
-
+function pressingEnter(event) {
+  if (event.keyCode === 13) {
+    displayAnswer();
+    lastGuess();
+  }
+}
 function toggleButton () {
   if (theGuess.value === '') {
     guessBtn.disabled = true;

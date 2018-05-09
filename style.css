@@ -30,17 +30,24 @@ span#guesser {
   color: #E6E7E8
 }
 
-button#guess-btn:disabled, button#clear-btn:disabled {
+button#guess-btn:disabled, button#clear-btn:disabled, button#reset:disabled {
   background-color: #D0D2D3;
   color: #FFFFFF;
 }
-#guess-btn, #clear-btn {
-  color: #FFFFFF;
+#guess-btn, #clear-btn, #reset {
   background-color: #929497;
+  border-radius: 20px;
+  color: #FFFFFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  height: 30px;
+  margin-top: 10px;
   width: 120px;
-  height: 20px;
-  border-radius: 8px;
-  font-size: 10px;
+}
+
+#reset {
+  width: 240px;
 }
 
 

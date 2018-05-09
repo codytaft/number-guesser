@@ -11,18 +11,24 @@
   </header>
   <form class="inputForm">
         <br />
-      <input id="guess" type="text" name="guess" placeholder="Enter your guess">
+      <input id="guess" type="number" name="guess" placeholder="Enter your guess between 1 and 100">
+      <p id="out-range"></p>
+      <br />
+      <input id="min" type="number" name="min" placeholder="min">
+      <input id="max" type="number" name="max" placeholder="max">
+      <br />
+      <button id="submitRange" type="button" value="range">submit</button>
       <br />
       <button id="guess-btn" type="button" value="guess" disabled>Guess</button>
       <button id="clear-btn" type="button" value="clear" disabled>Clear</button>
   </form>
   <article>
-    <p id="yourLast">Make a guess between 1 and 100</p>
+    <p id="yourLast"></p>
     <p id ="lastGuess"></p>
     <p id="highLow"></p>
     <label for="reset"></label>
     <br />
-    <button id="reset" type="button" value="reset" disabled>Reset</button>
+    <button id="reset" type="button" value="reset" >Reset</button>
   </article>
   <script type="text/javascript" src="main.js"></script>
 </body>

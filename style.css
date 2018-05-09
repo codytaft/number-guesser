@@ -34,7 +34,7 @@ button#guess-btn:disabled, button#clear-btn:disabled, button#reset:disabled {
   background-color: #D0D2D3;
   color: #FFFFFF;
 }
-#guess-btn, #clear-btn, #reset {
+#guess-btn, #clear-btn, #reset, #submitRange{
   background-color: #929497;
   border-radius: 20px;
   color: #FFFFFF;
@@ -46,12 +46,37 @@ button#guess-btn:disabled, button#clear-btn:disabled, button#reset:disabled {
   width: 120px;
 }
 
+#min, #max {
+  width: 50px;
+  margin-top: 20px;
+}
+}
+
 #reset {
   width: 240px;
 }
 
+#guess::-webkit-outer-spin-button,
+#guess::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
 
-#yourLast, #highLow {
+#min::-webkit-outer-spin-button,
+#min::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#max::-webkit-outer-spin-button,
+#max::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+#guess {
+  width: 240px;
+  height: 17px;
+}
+
+#yourLast, #highLow, #out-range {
   color: #404041;
   font-family: 'Open Sans', sans-serif;
   font-size: 25px;

@@ -9,17 +9,20 @@ var resetBtn = document.querySelector('#reset');
 var numResult = document.querySelector('#highLow');
 var textChange = document.querySelector('#yourLast');
 var wrongRange = document.querySelector('#out-range');
+var submitBtn = document.querySelector('#submitRange');
 var userMin = document.querySelector('#min');
 var userMax = document.querySelector('#max');
 var max = 100;
 var min = 0;
-// var randomNumber = userField (userMin, userMax);
 
+userMin.addEventListener('keypress', toggleButtonSubmit)
+userMax.addEventListener('keypress', toggleButtonSubmit)
+submitRange.addEventListener('click', placeHolder);
 submitRange.addEventListener('click', userField);
 theGuess.addEventListener('keydown', pressingEnter);
 theGuess.addEventListener('keyup', toggleButton);
-theGuess.addEventListener('keypress', onlyNumbers);
-theGuess.addEventListener('keydown', outRange);
+theGuess.addEventListener('keydown', onlyNumbers);
+theGuess.addEventListener('keyup', outRange);
 guessBtn.addEventListener('click', displayAnswer);
 guessBtn.addEventListener('click', lastGuess);
 clearBtn.addEventListener('click', clearInput);
@@ -27,10 +30,15 @@ resetBtn.addEventListener('click', function() {
   location.reload(true);
 });
 
+function placeHolder () {
+  theGuess.placeholder='Enter a number between ' + userMin.value + ' and ' + userMax.value;
+}
 
 function outRange () {
-  if (theGuess.value > max || theGuess.value < min) {
+  if (parseInt(theGuess.value) > parseInt(userMax.value) || parseInt(theGuess.value) < parseInt(userMin.value)) {
     wrongRange.innerText = 'That is out of the range';
+  } else {
+    wrongRange.innerText = '';
   }
 }
 
@@ -90,4 +98,11 @@ function toggleButton () {
   }
 }
 
+function toggleButtonSubmit () {
+  if ((userMin.value === '') && (userMax.value === '')) {
+    submitBtn.disabled = true;
+  } else {
+    submitBtn.disabled = false;
+  }
+}
 
